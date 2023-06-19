@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link href="https://fonts.googleapis.com/css2?family=Mitr" rel="stylesheet">
+		<link rel="icon" href="/static/repair.png" type="image" sizes="16x16">
+		
+		<style>
+			table {
+			  border-collapse: collapse;
+			  width: 100%;
+			}
+			
+			th, td {
+			  text-align: center;
+			  padding: 15px;
+			}
+			td {
+			  background-color:  #5179fc;
+			  color:  #000000;
+			}
+			tr:nth-child(even){background-color: #fc9551}
+			
+			th {
+			  background-color:  #000000;
+			  color:  #5179fc;
+			}
+
+			body {
+				height: 100%;
+				font-family: 'Mitr', sans-serif;
+				font-size: 22px;
+			   }
+			</style>
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<h1>Air Soft Com</h1>
+				<a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

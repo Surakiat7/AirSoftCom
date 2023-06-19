@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<html><br>
+<h2>รายการซ่อมทั้งหมด</h2>
+      <p>Welcome back  {{ name }}!</p>
+         <form action="{{ url_for('editprofile') }}" method="post">
+         <input type="hidden" name = "name" value="{{ name }}"/>
+         <input type="hidden" name = "ids" value="{{ ids }}"/>
+         <input type="hidden" name = "email" value="{{ email }}"/>
+         <input type="hidden" name = "address" value="{{ address }}"/>
+         <input type="hidden" name = "phone" value="{{ phone }}"/>
+         <input type="submit" value="แก้ไขข้อมูลช่าง" />  
+         </form> 
+{% for tots in tot %}
+<br>
+<h2>มีรายการทั้งหมด : {{tots['Total']}}</h2>
+{% endfor %}
+<div class="w3-container">
+    <h3>รายการซ่อมทั้งหมดที่ต้องจัดการ : </h3>
+     <table border="1" 1cellspacing="5" width="50%" height="5" align="center">
+        <tr>
+             <td align="center"><h3>รายการที่</h3></td>
+             <td align="center"><h3>ชื่ออุปกรณ์</h3></td>
+             <td align="center"><h3>อาการ</h3></td>
+             <td align="center" colspan="2"><h3>สถานะการซ่อม</h3></td>
+         </tr>
+          {% for dets in detd %}
+             <tr>
+                <th align="center">{{ dets['order_id'] }}</th>
+                <th align="center">{{ dets['order_name'] }}</th>
+                <th align="center">{{ dets['detail'] }}</th>
+                <th align="center">{{ dets['status'] }}</th>
+                <th align="center">  
+                    <form action="{{ url_for('edit') }}" method="post">  
+                        <input type="hidden" name = "order_id" value="{{ dets['order_id'] }}"/> 
+                        <input type="hidden" name = "price" value="{{ dets['price'] }}"/> 
+                        <input type="hidden" name = "name" value="{{ name }}"/>
+                        <input type="hidden" name = "ids" value="{{ ids }}"/>
+                        <input type="hidden" name = "detail" value="{{ dets['detail'] }}"/>
+                        <input type="submit" value="แก้ไขสถานะ" />   
+                    </form> 
+                </th>
+             </tr>
+          {% endfor %}
+       </table>
+    </div>
+{% endblock %}

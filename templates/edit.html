@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>เปลี่ยนแปลงสถานะการซ่อม</h2>
+<p>Welcome back, {{ name }}!</p><br>
+<div class="w3-container">
+   <h3>สถานะที่ต้องการแก้ไข: </h3>
+   <h3>รายการสินค้าที่: {{order_id}}</h3>
+   <form action = "/update/{{price}}/{{order_id}}/{{ name }}/{{ids}}/{{detail}}" method = "POST">   
+    <table border="0"  height="5" align="center">
+      <tr >
+         <th> กรุณาระบุค่าเสียหาย </th>
+         <th> <input type="text" size = "40%" name = "price" value="{{price}}" /> </th>
+       </tr>
+       <tr >
+         <th> รายการแก้ไข </th>
+         <th> <input type="text" size = "40%" name = "detail" value="{{detail}}" /> </th>
+       </tr>
+      <tr >
+         <input type="hidden" name = "order_id" value="{{order_id}}"/> 
+      </tr>
+      <tr >
+         <input type="hidden" name = "name" value="{{name}}"/>
+         <input type="hidden" name = "ids" value="{{ids}}"/> 
+      </tr>
+         <th colspan="2" align="center"> <input type="submit" value="บันทึก" />  </th>
+       </tr>
+      </table>
+   </form>
+   </div>
+{% endblock %}

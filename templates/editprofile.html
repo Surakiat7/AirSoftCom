@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>เปลี่ยนแปลงข้อมูลส่วนตัวของคุณ</h2>
+<div class="w3-container">
+   <h3>ข้อมูลเดิม   <br>
+      ชื่อเดิม : {{name}} <br>
+      อีเมลเดิม : {{email}} <br>
+      ที่อยู่เดิม : {{address}} <br>
+      หมายเลขโทรศัพท์เดิม : {{phone}}
+   <h3>ข้อมูลที่ต้องการเปลี่ยนแปลง: </h3>
+   <h3>ชื่อของคุณ : {{name}}</h3>
+   </h3>
+   <form action = "/update/{{name}}/{{email}}/{{address}}/{{phone}}" method = "POST">  
+    <table border="0"  height="5" align="center">
+       <tr >
+         <th> ชื่อ </th>
+         <th> <input type="text" size = "40%" name = "name" value="{{name}}" /> </th>
+      </tr>
+      <tr >
+        <th> อีเมล </th>
+        <th> <input type="text" size = "40%" name = "email" value="{{email}}" /> </th>
+     </tr>
+     <tr >
+        <th> ที่อยู่ </th>
+        <th> <input type="text" size = "40%" name = "address" value="{{address}}" /> </th>
+     </tr>
+     <tr >
+        <th> หมายเลขโทรศัพท์ </th>
+        <th> <input type="text" size = "40%" name = "phone" value="{{phone}}" /> </th>
+     </tr>
+         <th colspan="2" align="center"> <input type="submit" value="บันทึก" />  </th>
+       </tr>
+      </table>
+   </form>
+   </div>
+{% endblock %}

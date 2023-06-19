@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}แจ้งซ่อม{% endblock %}
+
+{% block content %}
+<p><strong>แจ้ง :</strong> กรุณาระบุอุปกรณ์และอาการของอุปกรณ์ของท่าน</p>
+<form action = "{{ url_for('insertdb') }}" method = "POST">
+  <th><p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="ชื่อผู้ส่งซ่อม" required name="name"></p></th>
+  <th><p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="สินค้า" required name="order_name"></p></th>
+  <th><p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="อาการ" required name="detail"></p></th>
+  <th><p><button class="w3-button w3-black" type="submit">แจ้งซ่อม</button></p></th>
+</form></table>
+{% endblock %}

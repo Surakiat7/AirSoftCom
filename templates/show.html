@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}สถานะการซ่อม{% endblock %}
+
+{% block content %}
+<div class="w3-container">
+    <h2>รายการซ่อมทั้งหมด : </h2>
+     <table border="1" 1cellspacing="5" width="50%" height="5" align="center">
+          <thead>
+             <th align="center">ชื่ออุปกรณ์</th>
+             <th align="center">ชื่อผู้ส่งซ่อม</th>
+             <th align="center">สถานะ</th>
+          </thead>
+          {% for ords in ord %}
+             <tr>
+                <td align="center">{{ ords['order_name'] }}</td>
+                <td>{{ ords['name'] }}</td>
+                <td>{{ ords['systemin'] }}</td>
+             </tr>
+          {% endfor %}
+       </table>
+    </div>
+{% endblock %}
